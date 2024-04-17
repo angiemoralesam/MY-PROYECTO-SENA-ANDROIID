@@ -1,118 +1,124 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
-  Text,
-  useColorScheme,
+  Button,
   View,
+  ImageBackground,
+  Text,
+  Alert,
+  Image,
+  TextInput
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const image = {uri: 'https://img.freepik.com/foto-gratis/arreglo-elementos-trabajo-planos_23-2148975818.jpg'};
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+const Separator = () => <View style={styles.separator} />;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+const App = () => (
+  <ImageBackground source={image} resizeMode="cover" style={styles.image2}>
+    <View style={styles.container}>
+      <Image
+        style={styles.logo}
+        source={{
+          uri: 'https://senasofiaplus.xyz/wp-content/uploads/2023/10/logo-del-sena-01.png',
+        }}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+    </View>
+  <View>
+      <Text style={styles.title}>
+        evidencia GA8-220501096-AA2-EV02
+      </Text>
+      <Button
+        title="BIENVENIDOs"
+        color={"#00AC00"}
+        onPress={() => Alert.alert('Hola, te saluda ANGIE MARCELA MORALES NIÑO')}
+        
+      />
+      <Separator />
+    </View>
+    <View>
+    <Text style={styles.title}>
+        INICIO DE SESION 
+      </Text>
+      <Text style={styles.text}>
+        correo electronico
+      </Text>
+      <TextInput style={styles.textInput} />
+    </View>
+    <Text style={styles.text}>
+       contraseña
+      </Text>
+    <View>
+      <TextInput style={styles.textInput} />
+    </View>
+    <Separator />
+    <View>
+      <Button
+        title="Ingresar"
+        color="#ba55d3"
+        onPress={() => Alert.alert('Se Encuentra en reparacion')}
+      />
+    </View>
+    <Separator />
+      <View style={styles.fixToText}>
+        <Button
+          title="mensaje 1"
+          color={"#ba55d3"}
+          onPress={() => Alert.alert('Gracias')}
+        />
+        <Button 
+          title="mensaje 2"
+          color={"#00AC00"}
+          onPress={() => Alert.alert('Feliz dia')}
+        />
+      </View>
+  </ImageBackground>
+);
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+  justifyContent: 'center',
+  
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  logo: {
+    resizeMode: 'contain',
+    height:150
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  title: {
+    textAlign: 'center',
+    marginVertical: 8,
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 20,
   },
-  highlight: {
-    fontWeight: '700',
+  text: {
+    textAlign: 'center',
+    marginVertical: 5,
+    color: 'black'
+  },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  separator: {
+    marginVertical: 10,
+    
+  },
+  image2: {
+    flex: 1,
+    marginHorizontal: 8,
+    padding: 20,
+    margin: 10
+  },
+  textInput:{
+    borderColor: '#ba55d3',
+    borderWidth: 1,
+    height:50,
+    color: 'black'
   },
 });
 
+
 export default App;
+
